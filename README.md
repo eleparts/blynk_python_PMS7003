@@ -23,6 +23,10 @@ https://github.com/vshymanskyy/blynk-library-python
 >(python3 사용)  
 >``sudo pip3 install blynk-library-python``
 
+PMS7003 라이브러리 다운로드 스크립트 실행
+``./start.sh``
+
+
 ## bly_PMS7003.py
   
 blynk 연결을 위한 **사용자 토큰**을 아래 *YourAuthToken*에 입력하고  
@@ -43,8 +47,12 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 ``sudo puthon3 bly_PMS7003.py``  
 위 명령어로 실행해 주시면 됩니다.
 
-## PMS7003.py
-PMS7003 먼지센서의 Python 용 라이브러리 입니다.
+## start.sh
+PMS7003 먼지센서의 Python 용 라이브러리 다운로드 스크립트 입니다.
+
+아래 명령을 입력해 파일을 다운로드 해 줍니다.
+``./start.sh``
+
 https://github.com/eleparts/PMS7003
 위 링크를 참고해 주시면 됩니다.
 
