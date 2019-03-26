@@ -19,20 +19,23 @@ Blynk python 구성품 키트 정보는 아래 페이지를 참고 해 주세요
 https://github.com/vshymanskyy/blynk-library-python  
 위 라이브러리를 필수로 설치해 주셔야 합니다.   
 
-라즈베리파이에서 위 라이브러리 설치 시 아래 명령으로 실행해야 합니다.   
+라즈베리파이에서 위 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  
 >(python3 사용)  
->``sudo pip3 install blynk-library-python``   
+>``sudo pip3 install blynk-library-python``  
 
-PMS7003 라이브러리 다운로드 스크립트 실행   
->``./start.sh``   
-위 명령어를 입력해 라이브러리를 다운로드 해 주어야 합니다.   
+PMS7003 라이브러리 다운로드 스크립트 실행  
+
+>``chmod +x start.sh``  
+>``./start.sh``  
+   
+위 명령어를 입력해 라이브러리를 다운로드 해 주어야 합니다.  
 
 ## bly_PMS7003.py
   
 blynk 연결을 위한 **사용자 토큰**을 아래 *YourAuthToken*에 입력하고  
 ``BLYNK_AUTH =  'YourAuthToken'``  
   
- **시리얼 설정(#USE PORT)** 부분(하단 코드 참고)을 연결 방식에 맞춰 수정해준 뒤   
+ **시리얼 설정(#USE PORT)** 부분(하단 코드 참고)을 연결 방식에 맞춰 수정해준 뒤  
 ```
 # UART / USB Serial
 USB0 =  '/dev/ttyUSB0' # USB 사용시 / USB0이 아닌경우 변경 
@@ -51,8 +54,11 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 PMS7003 먼지센서의 Python 용 라이브러리 다운로드 스크립트 입니다.   
 
 아래 명령을 입력해 파일을 다운로드 해 줍니다.   
-``./start.sh``   
+```
+chmod +x start.sh  
+./start.sh  
+```   
 
 https://github.com/eleparts/PMS7003   
-위 링크를 참고해 주시면 됩니다.   
+다운로드되는 파일은 위 링크를 참고해 주시면 됩니다.   
 
