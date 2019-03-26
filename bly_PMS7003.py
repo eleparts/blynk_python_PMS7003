@@ -1,14 +1,15 @@
 """
 * blynk로 PMS7003 데이터 송신 예제
-* 수정 : 2018. 08. 28
+* 수정 : 2019. 03. 26
 * 제작 : eleparts 부설연구소
-* SW ver. 1.0.0
+* SW ver. 1.1.0
 """
 
 import BlynkLib
 import time
 import serial
 from PMS7003 import PMS7003
+from BlynkTimer import BlynkTimer
 
 BLYNK_AUTH = 'YourAuthToken'
 
@@ -29,6 +30,9 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 
 # Initialize Blynk
 blynk = BlynkLib.Blynk(BLYNK_AUTH)
+
+# Create BlynkTimer Instance
+timer = BlynkTimer()
 
 dust = PMS7003()
 
@@ -59,7 +63,12 @@ def my_user_task():
     blynk.virtual_write(1,'255')
 
 
-blynk.set_user_task(my_user_task, 2000)
 
-# Start Blynk (this call should never return)
-blynk.run()
+# Add Timers
+# Will Print Every 2 Seconds
+timer.set_interval(2, my_user_task)
+
+# Start Blynk, Start timer
+while True:
+  blynk.run()
+  timer.run()

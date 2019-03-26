@@ -58,7 +58,11 @@ PMS7003 먼지센서의 Python 용 라이브러리 다운로드 스크립트 입
 chmod +x start.sh  
 ./start.sh  
 ```   
-
+PMS7003 라이브러리   
 https://github.com/eleparts/PMS7003   
+
+Blynk timer   
+https://github.com/vshymanskyy/blynk-library-python   
+
 다운로드되는 파일은 위 링크를 참고해 주시면 됩니다.   
 
