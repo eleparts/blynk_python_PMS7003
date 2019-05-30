@@ -1,36 +1,38 @@
 
 
-# Blynk python PMS7003예제 for 라즈베리파이
+# Blynk python PMS7003예제 for 라즈베리파이  
 
 **라즈베리파이**에서 사용되는 **Blynk python 버전**의 **PMS7003 데이터 수신**예제 코드입니다.  
 Blynk python 구성품 키트 정보는 아래 페이지를 참고 해 주세요  
 -준비 중  
 
 
-## menual
+## menual  
 
 사용자  매뉴얼 입니다.  
 
 - 제품 구성 및 조립 방법 등이 자세히 설명되어 있습니다.  
 -준비 중  
 
-## 사용 전 필수 라이브러리
+## 사용 전 필수 라이브러리  
 
 https://github.com/vshymanskyy/blynk-library-python  
 위 라이브러리를 필수로 설치해 주셔야 합니다.   
 
 라즈베리파이에서 위 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  
 >(python3 사용)  
->``sudo pip3 install blynk-library-python``  
+>``pip3 install blynk-library-python``  
+>다운로드 실패 시 앞에 ``sudo`` 를 붙이거나, ``pip install blynk-library-python`` 등으로 시도  
 
-PMS7003 라이브러리 다운로드 스크립트 실행  
+
+blynk_python_PMS7003에 포함된 PMS7003 라이브러리 다운로드 스크립트 실행  
 
 >``chmod +x start.sh``  
 >``./start.sh``  
    
 위 명령어를 입력해 라이브러리를 다운로드 해 주어야 합니다.  
 
-## bly_PMS7003.py
+## bly_PMS7003.py  
   
 blynk 연결을 위한 **사용자 토큰**을 아래 *YourAuthToken*에 입력하고  
 ``BLYNK_AUTH =  'YourAuthToken'``  
