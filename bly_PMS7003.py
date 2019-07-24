@@ -1,6 +1,6 @@
 """
 * blynk로 PMS7003 데이터 송신 예제
-* 수정 : 2019. 07. 23
+* 수정 : 2019. 07. 24
 * 제작 : eleparts 부설연구소
 * SW ver. 2.0.0
 
@@ -8,7 +8,7 @@
 > blynk.io 홈페이지에 업로드된 라이브러리로 대체되었습니다. 
 >기존 버전은 old_version 디렉터리로 이동됨
 
->본 라이브러리의 PMS7003 기본 연결 설정이 USB0로 변경되었습니다.
+>본 예제의 PMS7003 기본 연결 설정이 USB0로 변경되었습니다.
 > Vpin 7,8,9 = LCD 
 > Vpin 6 = LED
 
@@ -35,7 +35,7 @@ USB0 = '/dev/ttyUSB0'
 UART = '/dev/ttyAMA0'
 
 # USE PORT  
-SERIAL_PORT = USB0  #연결방식에 맞춰 변경, 기본값 USB0 로 변경됨
+SERIAL_PORT = USB0  #기본값 USB0, 연결방식에 맞춰 변경
 
 #serial setting 
 ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)

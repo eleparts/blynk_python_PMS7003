@@ -52,7 +52,7 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 > Vpin 7,8,9 = LCD   
 > Vpin 6 = LED  
   
-## start.sh
+## start.sh  
 PMS7003 먼지센서의 Python 용 라이브러리 다운로드 스크립트 입니다.   
 
 아래 명령을 입력해 파일을 다운로드 해 줍니다.   
