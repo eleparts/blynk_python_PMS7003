@@ -64,12 +64,14 @@ def my_user_task():
     data = dust.unpack_data(buffer)
 
     print("send - PM1.0: %d | PM2.5: %d | PM10: %d" %(data[dust.DUST_PM1_0_ATM],data[dust.DUST_PM2_5_ATM],data[dust.DUST_PM10_0_ATM]) )
+    # Labeled Value (Display)
     blynk.virtual_write(7, data[dust.DUST_PM1_0_ATM])
     blynk.virtual_write(8, data[dust.DUST_PM2_5_ATM])
     blynk.virtual_write(9, data[dust.DUST_PM10_0_ATM])
-    # blynk.virtual_write(7, ('PM1.0 : ' + str(data[dust.DUST_PM10P0_ATM])))
-    # blynk.virtual_write(8, ('PM2.5 : ' + str(data[dust.DUST_PM10P0_ATM])))
-    # blynk.virtual_write(9, ('PM10  : ' + str(data[dust.DUST_PM10P0_ATM])))
+    # Value Display
+    #blynk.virtual_write(7, ("PM1.0 : " + str(data[dust.DUST_PM1_0_ATM])))
+    #blynk.virtual_write(8, ("PM2.5 : " + str(data[dust.DUST_PM2_5_ATM])))
+    #blynk.virtual_write(9, ("PM10  : " + str(data[dust.DUST_PM10_0_ATM])))
 
     blynk.virtual_write(6,'0')
   
