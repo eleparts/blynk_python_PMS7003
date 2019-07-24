@@ -47,7 +47,11 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 ```  
 ``sudo puthon3 bly_PMS7003.py``  
 위 명령어로 실행해 주시면 됩니다.
-
+  
+※ blynk 위젯 배치  
+> Vpin 7,8,9 = LCD   
+> Vpin 6 = LED  
+  
 ## start.sh
 PMS7003 먼지센서의 Python 용 라이브러리 다운로드 스크립트 입니다.   
 
