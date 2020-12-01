@@ -47,7 +47,7 @@ SERIAL_PORT = USB0  #연결방식에 맞춰 변경, 기본값 USB0 로 변경됨
 #serial setting  
 ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)  
 ```  
-``sudo puthon3 bly_PMS7003.py``  
+``sudo python3 bly_PMS7003.py``  
 위 명령어로 실행해 주시면 됩니다.
   
 ※ blynk 위젯 배치  
