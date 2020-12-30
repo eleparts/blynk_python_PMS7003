@@ -15,13 +15,14 @@ https://github.com/eleparts/iotkit
 https://github.com/blynkkk/lib-python  
 위 라이브러리를 필수로 설치해 주셔야 합니다.  
    
-라즈베리파이에서 위 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  /
+라즈베리파이에서 위 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  
 >(python3 사용)  
 >``pip3 install blynklib``  
 >다운로드 실패 시 앞에 ``sudo``를 붙여 실행해 줍니다.  
   
-blynk_python_PMS7003에 포함된 PMS7003 및 타이머 라이브러리 다운로드 스크립트 실행  
-  
+blynk_python_PMS7003 다운로드 및 포함된 PMS7003 및 타이머 라이브러리 다운로드 스크립트 실행  
+
+>``git clone https://github.com/eleparts/blynk_python_PMS7003``  
 >``chmod +x start.sh``  
 >``./start.sh``  
   
@@ -46,7 +47,7 @@ SERIAL_PORT = USB0  #연결방식에 맞춰 변경, 기본값 USB0 로 변경됨
 #serial setting  
 ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)  
 ```  
-``sudo puthon3 bly_PMS7003.py``  
+``sudo python3 bly_PMS7003.py``  
 위 명령어로 실행해 주시면 됩니다.
   
 ※ blynk 위젯 배치  
