@@ -55,36 +55,36 @@ dust = PMS7003()
 # timer : 설정해 둔 시간마다 실행됨
 @timer.register(interval=2, run_once=False) # 2초마다 반복실행
 def my_user_task():
-  # do any non-blocking operations
-  
-  ser.flushInput()
-  buffer = ser.read(1024)
-
-  if(dust.protocol_chk(buffer)):
-    data = dust.unpack_data(buffer)
-
-    print("send - PM1.0: %d | PM2.5: %d | PM10: %d" %(data[dust.DUST_PM1_0_ATM],data[dust.DUST_PM2_5_ATM],data[dust.DUST_PM10_0_ATM]) )
-    # Labeled Value (Display)
-    blynk.virtual_write(7, data[dust.DUST_PM1_0_ATM])
-    blynk.virtual_write(8, data[dust.DUST_PM2_5_ATM])
-    blynk.virtual_write(9, data[dust.DUST_PM10_0_ATM])
-    # Value Display
-    #blynk.virtual_write(7, ("PM1.0 : " + str(data[dust.DUST_PM1_0_ATM])))
-    #blynk.virtual_write(8, ("PM2.5 : " + str(data[dust.DUST_PM2_5_ATM])))
-    #blynk.virtual_write(9, ("PM10  : " + str(data[dust.DUST_PM10_0_ATM])))
-
-    blynk.virtual_write(6,'0')
-  
-  
-  else: 
-    # protocol_chk fail
+    # do any non-blocking operations
     
-    print("data Err")
-    blynk.virtual_write(6,'255')
+    ser.flushInput()
+    buffer = ser.read(1024)
+
+    if(dust.protocol_chk(buffer)):
+        data = dust.unpack_data(buffer)
+
+        print("send - PM1.0: %d | PM2.5: %d | PM10: %d" %(data[dust.DUST_PM1_0_ATM],data[dust.DUST_PM2_5_ATM],data[dust.DUST_PM10_0_ATM]) )
+        # Labeled Value (Display)
+        blynk.virtual_write(7, data[dust.DUST_PM1_0_ATM])
+        blynk.virtual_write(8, data[dust.DUST_PM2_5_ATM])
+        blynk.virtual_write(9, data[dust.DUST_PM10_0_ATM])
+        # Value Display
+        #blynk.virtual_write(7, ("PM1.0 : " + str(data[dust.DUST_PM1_0_ATM])))
+        #blynk.virtual_write(8, ("PM2.5 : " + str(data[dust.DUST_PM2_5_ATM])))
+        #blynk.virtual_write(9, ("PM10  : " + str(data[dust.DUST_PM10_0_ATM])))
+
+        blynk.virtual_write(6,'0')
+    
+    
+    else: 
+        # protocol_chk fail
+        
+        print("data Err")
+        blynk.virtual_write(6,'255')
 
 
 
 # Start Blynk, Start timer
 while True:
-  blynk.run()
-  timer.run()
+    blynk.run()
+    timer.run()
