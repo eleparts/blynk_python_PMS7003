@@ -1,27 +1,28 @@
 """
 * blynk로 PMS7003 데이터 송신 예제
-* 수정 : 2019. 07. 24
+* 수정 : 2024. 02. 07
 * 제작 : eleparts 부설연구소
-* SW ver. 2.0.0
+* SW ver. 3.0.0
 
-2.0.0 변경사항
-> blynk.io 홈페이지에 업로드된 라이브러리로 대체되었습니다. 
->기존 버전은 old_version 디렉터리로 이동됨
+3.0.0 변경사항
+> blynk 2.0 대응 업데이트
+blynk-library-python 최신버전 v1.0.0 을 직접 받아 설치해야 합니다.
 
->본 예제의 PMS7003 기본 연결 설정이 USB0로 변경되었습니다.
+>본 예제의 PMS7003 기본 연결 설정은 USB0입니다.
 > Vpin 7,8,9 = LCD 
 > Vpin 6 = LED
 
-기반 코드 및 필수 라이브러리 - blynk / python (Blynk Python Library V0.2.4)
-https://github.com/blynkkk/lib-python
+기반 코드 및 필수 라이브러리 - blynk / python (Blynk Python Library V1.0.0)
+https://github.com/vshymanskyy/blynk-library-python
+> 공식 저장소(2.x.x 라이브러리)에서 기존 라이브러리로 변경(1.x.x 라이브러리) 
 """
 
-import blynklib
-import blynktimer
+import BlynkLib
 import time
 import serial
 import RPi.GPIO as GPIO 
 from PMS7003 import PMS7003
+from BlynkTimer import BlynkTimer
 
 
 BLYNK_AUTH = 'YourAuthToken'
@@ -42,19 +43,18 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 #========================================
 
 # Initialize Blynk
-blynk = blynklib.Blynk(BLYNK_AUTH)
+blynk = BlynkLib.Blynk(BLYNK_AUTH)
 
 # Create BlynkTimer Instance
-timer = blynktimer.Timer()
+timer = BlynkTimer()
 
 # Create Dust sensor
 dust = PMS7003()
 
 
-# Add Timers
-# timer : 설정해 둔 시간마다 실행됨
-@timer.register(interval=2, run_once=False) # 2초마다 반복실행
-def my_user_task():
+
+# PMS 먼지센서 정보 읽은 후 데이터 연동 함수 - 하단 타이머로 실행
+def send_pms_data():
     # do any non-blocking operations
     
     ser.flushInput()
@@ -68,19 +68,24 @@ def my_user_task():
         blynk.virtual_write(7, data[dust.DUST_PM1_0_ATM])
         blynk.virtual_write(8, data[dust.DUST_PM2_5_ATM])
         blynk.virtual_write(9, data[dust.DUST_PM10_0_ATM])
-        # Value Display
+        # Display Value
         #blynk.virtual_write(7, ("PM1.0 : " + str(data[dust.DUST_PM1_0_ATM])))
         #blynk.virtual_write(8, ("PM2.5 : " + str(data[dust.DUST_PM2_5_ATM])))
         #blynk.virtual_write(9, ("PM10  : " + str(data[dust.DUST_PM10_0_ATM])))
 
         blynk.virtual_write(6,'0')
-    
-    
+
+
     else: 
         # protocol_chk fail
         
         print("data Err")
         blynk.virtual_write(6,'255')
+
+
+# Add Timers
+# timer : 설정해 둔 시간마다 실행됨
+timer.set_interval(2, send_pms_data) # 2초마다 반복실행
 
 
 
