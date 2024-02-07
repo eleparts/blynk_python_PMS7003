@@ -12,23 +12,34 @@ https://github.com/eleparts/iotkit
   
 ## 사용 전 필수 라이브러리  
 
-https://github.com/blynkkk/lib-python  
+https://github.com/vshymanskyy/blynk-library-python  
 위 라이브러리를 필수로 설치해 주셔야 합니다.  
    
-라즈베리파이에서 위 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  
->(python3 사용)  
->``pip3 install blynklib``  
->다운로드 실패 시 앞에 ``sudo``를 붙여 실행해 줍니다.  
-  
-blynk_python_PMS7003 다운로드 및 포함된 PMS7003 및 타이머 라이브러리 다운로드 스크립트 실행  
+라즈베리파이에서 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  
 
+```bash
+# 복제된 lynk-library-python 라이브러리
+git clone https://github.com/eleparts/blynk-library-python
+cd blynk-library-python
+sudo python setup.py install
+```
+
+만약 라즈베리파이5를 사용한다면 아래 명령어로 pi5 GPIO 라이브러리를 설치해 주어야 합니다.
+
+```bash
+# 반드시 라즈베리파이 5 사용시에만 설치
+pip install --break-system-packages rpi-lgpio
+```
+  
+blynk_python_PMS7003 다운로드 및 포함된 PMS7003 라이브러리 다운로드 스크립트 실행  
+  
 >``git clone https://github.com/eleparts/blynk_python_PMS7003``  
 >``chmod +x start.sh``  
 >``./start.sh``  
   
 위 명령어를 입력해 라이브러리를 다운로드 해 주어야 합니다.  
 (다운로드 되는 라이브러리는 하단 start.sh 참고)  
-    
+  
   
 ## bly_PMS7003.py  
   
@@ -65,21 +76,10 @@ chmod +x start.sh
 PMS7003 라이브러리   
 https://github.com/eleparts/PMS7003   
   
-Blynk timer - 2019-07-19일자 Fork file  
-https://github.com/eleparts/lib-python/blob/master/blynktimer.py  
-  
-원본 : https://github.com/blynkkk/lib-python/blob/master/blynktimer.py  
-  
-다운로드되는 파일은 위 링크를 참고해 주시면 됩니다.   
+다운로드되는 파일은 위 링크를 참고해 주시면 됩니다.  
   
   
 ## old_version  
 
-Blynk python GPIO 1.x.x (구버전) 파일이 정리되어 있습니다.  
-  
-blynk앱과 라즈베리파이+먼지센서를 이용해 스마트폰으로 실시간 먼지 데이터 받아보기  
-https://blog.naver.com/elepartsblog/221349914498  
-  
-위 블로그 예제와 호환됩니다.  
-  
+구버전(1.x.x / 2.x.x) 파일이 정리되어 있습니다.  
   
