@@ -1,12 +1,15 @@
 """
-* blynk로 PMS7003 데이터 송신 예제
+* blynk PMS7003 데이터 송신 예제
 * 수정 : 2024. 02. 16
 * 제작 : eleparts 부설연구소
-* SW ver. 3.0.1
+* SW ver. 3.1.0
 
->본 예제의 PMS7003 기본 연결 설정은 USB0입니다.
-> Vpin 4 = LED
-> Vpin 5,6,7 = LCD 
+> 본 예제의 PMS7003 기본 연결 설정은 USB0입니다.
+> Vpin
+V4 - integer 0/255  : LED
+V5 - string         : Value Display
+V6 - string         : Value Display
+V7 - string         : Value Display
 
 기반 코드 및 필수 라이브러리 - blynk / python (Blynk Python Library V1.0.0)
 https://github.com/vshymanskyy/blynk-library-python
@@ -18,7 +21,6 @@ import serial
 import RPi.GPIO as GPIO 
 from PMS7003 import PMS7003
 from BlynkTimer import BlynkTimer
-
 
 BLYNK_AUTH = 'YourAuthToken'
 
