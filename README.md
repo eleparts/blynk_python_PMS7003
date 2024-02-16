@@ -12,10 +12,9 @@ https://github.com/eleparts/iotkit
   
 ## 사용 전 필수 라이브러리  
 
-https://github.com/vshymanskyy/blynk-library-python  
-위 라이브러리를 필수로 설치해 주셔야 합니다.  
-  
-라즈베리파이에서 라이브러리 설치 시 아래 명령으로 실행해야 합니다.  
+
+[**blynk - Python 라이브러리**](https://github.com/vshymanskyy/blynk-library-python)를 필수로 설치해 주셔야 합니다.  
+라즈베리파이에서 아래 명령을 차례대로 입력해 주시면 간단히 설치할 수 있습니다.  
 
 ```bash
 # 복제된 lynk-library-python 라이브러리
@@ -24,20 +23,21 @@ cd blynk-library-python
 sudo python setup.py install
 ```
   
-만약 라즈베리파이5를 사용한다면 아래 명령어로 pi5 GPIO 라이브러리를 설치해 주어야 합니다.  
+> - 라즈베리파이5를 사용한다면 추가로 pi5용 lgpio 라이브러리를 설치해 줍니다.  
+> ```bash
+> # 반드시 라즈베리파이 5 사용시에만 설치
+> pip install --break-system-packages rpi-lgpio
+> ```
+  
+본 저장소(blynk_python_PMS7003)의 예제 다운로드, 포함된 PMS7003 라이브러리 다운로드를 위한 스크립트를 실행은 아래 명령어를 입력해 주시면 됩니다.  
   
 ```bash
-# 반드시 라즈베리파이 5 사용시에만 설치
-pip install --break-system-packages rpi-lgpio
-```
+git clone https://github.com/eleparts/blynk_python_PMS7003
+chmod +x start.sh
+./start.sh
+```  
   
-blynk_python_PMS7003 다운로드 및 포함된 PMS7003 라이브러리 다운로드 스크립트 실행  
-  
->``git clone https://github.com/eleparts/blynk_python_PMS7003``  
->``chmod +x start.sh``  
->``./start.sh``  
-  
-위 명령어를 입력해 라이브러리를 다운로드 해 주어야 합니다.  
+위 명령어를 입력해 주시면 라이브러리를 다운로드 하실 수 있습니다.  
 (다운로드 되는 라이브러리는 하단 start.sh 참고)  
   
   
@@ -62,8 +62,9 @@ ser = serial.Serial(SERIAL_PORT, Speed, timeout = 1)
 위 명령어로 실행해 주시면 됩니다.  
   
 ※ blynk 위젯 배치  
-> Vpin 7,8,9 = LCD  
-> Vpin 6 = LED  
+> Vpin 4 = LED  
+> Vpin 5,6,7 = LCD  
+
   
 ## start.sh  
 PMS7003 먼지센서의 Python 용 라이브러리 다운로드 스크립트 입니다.  
